@@ -391,16 +391,23 @@ export function PortfolioHome() {
           <Card className="border-white/10 bg-white/[0.04]">
             <CardHeader>
               <div className="text-xs uppercase tracking-[0.28em] text-amber-200/75 mb-2">NLP | Domain Generalization</div>
-              <CardTitle className="text-white text-2xl">
-                <a 
-                  href="https://arxiv.org/abs/2605.03091" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="hover:text-amber-300 transition"
-                >
-                  Attribution-Guided Masking for Robust Cross-Domain Sentiment Classification
-                </a>
-              </CardTitle>
+              <div className="flex items-start justify-between gap-4">
+                <CardTitle className="text-white text-2xl">
+                  <a 
+                    href="https://arxiv.org/abs/2605.03091" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="hover:text-amber-300 transition"
+                  >
+                    Attribution-Guided Masking for Robust Cross-Domain Sentiment Classification
+                  </a>
+                </CardTitle>
+                <Button asChild size="sm" variant="secondary">
+                  <a href="https://arxiv.org/abs/2605.03091" target="_blank" rel="noreferrer">
+                    <ArrowUpRight className="h-3 w-3" /> arXiv
+                  </a>
+                </Button>
+              </div>
               <p className="mt-2 text-sm text-white/50">arXiv:2605.03091 (2026)</p>
             </CardHeader>
             <CardContent className="space-y-4">
