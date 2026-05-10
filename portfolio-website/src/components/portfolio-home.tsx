@@ -378,8 +378,15 @@ export function PortfolioHome() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
-        <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Publication</p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Research on domain-robust NLP.</h2>
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Publication</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Research on domain-robust NLP.</h2>
+          </div>
+          <div className="flex gap-2 flex-col">
+            <a href="https://scholar.google.com/citations?user=HfY9ZRoAAAAJ&hl=en" target="_blank" rel="noreferrer" className="text-sm text-amber-300 hover:text-amber-200 transition">Google Scholar</a>
+          </div>
+        </div>
         <div className="mt-6">
           <Card className="border-white/10 bg-white/[0.04]">
             <CardHeader>
@@ -451,6 +458,15 @@ export function PortfolioHome() {
               </Button>
               <Button asChild variant="secondary">
                 <a href="https://d2wb2ysunmtcp0.cloudfront.net/" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> Chat with my AI</a>
+              </Button>
+              <Button asChild variant="secondary">
+                <a href="https://scholar.google.com/citations?user=HfY9ZRoAAAAJ&hl=en" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> Scholar</a>
+              </Button>
+              <Button asChild variant="secondary">
+                <a href="https://arxiv.org/abs/2605.03091" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> arXiv</a>
+              </Button>
+              <Button asChild variant="secondary">
+                <a href="https://x.com/Memoirs/status/2051927470941610228" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> Featured on X</a>
               </Button>
             </div>
           </CardContent>
