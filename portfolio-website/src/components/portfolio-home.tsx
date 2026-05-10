@@ -435,6 +435,13 @@ export function PortfolioHome() {
                   This work opens new directions for building more robust, domain-agnostic NLP models. The attribution-masking framework is model-agnostic and can extend to other text classification tasks. Key takeaway: training procedures that encourage interpretability (via attribution) can simultaneously improve generalization.
                 </p>
               </div>
+              <div className="mt-6 pt-4 border-t border-white/10 flex gap-2">
+                <Button asChild size="sm" variant="secondary">
+                  <a href="https://x.com/Memoirs/status/2051927470941610228" target="_blank" rel="noreferrer">
+                    <ArrowUpRight className="h-3 w-3" /> Featured on X
+                  </a>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
