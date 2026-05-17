@@ -35,81 +35,64 @@ const skills = [
 
 const experience = [
   {
-    title: "M-City, UMTRI, Ann Arbor, MI",
-    role: "Research Associate",
+    title: "M-City, University of Michigan",
+    role: "Student ML Researcher",
     period: "Sep 2025 - Present",
-    description: "Working on autonomous vehicle perception and planning at the University of Michigan's Mobility Transformation Center. Focus on building reliable evaluation systems and improving model robustness in complex driving scenarios.",
+    description: "Ann Arbor",
     points: [
-      "Built an automated perception to planning evaluation pipeline (ROS, Open3D, Python), reducing manual test effort by 70% and enabling batched A/B model comparisons across hundreds of test cases.",
-      "Trained a multi-task perception and short-horizon motion-forecast model (PyTorch) that cut 0-3s trajectory error by 15% and reduced collision-warning events by 9% in closed-loop simulations against safety benchmarks.",
-      "Added distribution-shift monitoring and regression tests (MLflow, TensorBoard) to detect model degradation across sensor conditions and speed rollbacks with automated alerts for out-of-distribution scenarios.",
+      "Built an automated perception-to-planning evaluation pipeline using ROS, Open3D, and Python, reducing manual testing effort by 70% and enabling batched A/B model evaluation.",
+      "Trained a multi-task perception and short-horizon forecasting model in PyTorch, reducing 0–3s trajectory prediction error by 15% and lowering collision-warning events by 9% in closed-loop simulations.",
+      "Added multimodal experiment tracking, distribution-shift monitoring, and regression testing using MLflow and TensorBoard to improve model reliability and rollback validation.",
     ],
   },
   {
-    title: "Vestas Wind Technology, Chennai, India",
+    title: "Vestas Wind Technology",
     role: "Data Scientist Intern",
     period: "Jun 2024 - Jul 2025",
-    description: "Developed ML solutions for predictive maintenance at a leading wind turbine manufacturer. Built forecasting models for critical component failure prediction and streamlined maintenance planning across hundreds of turbines.",
+    description: "Chennai, India",
     points: [
-      "Developed gearbox-failure forecasting using SCADA telemetry and maintenance logs with engineered time-series features (lags, rolling statistics) and an LSTM + XGBoost ensemble; achieved AUC 0.82 with median alert lead time of 18 days, enabling proactive maintenance scheduling.",
-      "Productionized streaming inference pipeline (Kafka → Spark → ONNX Runtime) with 80 ms median latency serving 50+ turbines in real-time. Automated weekly retraining via Airflow with performance monitoring, reducing unplanned downtime by 25% across fleet.",
-      "Integrated spare-parts demand forecasting with the maintenance pipeline using demand-driven feature engineering, lowering parts overstock by 15% and improving inventory efficiency while maintaining zero-stock events.",
+      "Developed gearbox-failure forecasting models using SCADA telemetry, maintenance logs, and engineered time-series features, achieving 0.82 AUC with median alert lead times of approximately 18 days.",
+      "Productionized streaming inference pipelines using Kafka, Spark, ONNX Runtime, and Airflow-managed retraining workflows, achieving 80 ms median latency.",
+      "Reduced unplanned turbine downtime by 25% and integrated spare-parts demand forecasting into maintenance scheduling, reducing inventory overstock by 15%.",
     ],
   },
   {
-    title: "Computer Society, MIT, Chennai, India",
+    title: "Computer Society, MIT",
     role: "ML Engineer",
     period: "Mar 2021 - Jun 2024",
-    description: "Led machine learning infrastructure and semantic search development for MIT's student tech community. Built production systems for document retrieval and optimized model serving for low-latency inference.",
+    description: "Chennai, India",
     points: [
-      "Built a production semantic-search service using a dual-encoder + cross-encoder re-ranker architecture with FAISS indexing, achieving 28% Top-1 improvement over TF-IDF baseline and median latency under 120 ms at peak load.",
-      "Applied knowledge distillation (teacher-student learning) and INT8 quantization (PyTorch to ONNX Runtime) to achieve 3x throughput increase and 2.5x reduction in CPU inference cost, enabling cost-effective scaling.",
-      "Deployed end-to-end system via Docker containers with FastAPI backend, automated CI/CD via GitHub Actions, and comprehensive MLflow logging for reproducible A/B testing and model version control.",
-    ],
-  },
-  {
-    title: "MES section IIT Madras, Chennai, India",
-    role: "Research Intern",
-    period: "Jun 2023 - Aug 2023",
-    description: "Developed sensor-based quality prediction systems for precision manufacturing. Combined signal processing with deep learning to detect anomalies in real-time and reduce manufacturing defects.",
-    points: [
-      "Trained a hole-quality predictor from multi-modal sensor data (vibration, force, acoustic) using 1D-CNN feature extractor + GBDT classifier; achieved R² ≈ 0.72 on validation set with 30% reduction in rework rate during pilot deployment.",
-      "Deployed lightweight on-device anomaly detection (edge embeddings to isolation forest) on Jetson Nano and Raspberry Pi with latency under 50ms, reducing tool-wear related failures by 22% through real-time alerts to operators.",
-      "Packaged reproducible experiments using PyTorch and MLflow tracking across lab and shop-floor datasets, establishing validation protocols across different manufacturing conditions and sensor calibrations.",
+      "Built a semantic retrieval pipeline using sentence-transformers, LLM reranking, and vector search, improving Top-1 relevance by 28%, tripling throughput, and reducing CPU cost by 2.5x.",
+      "Developed a real-time ADAS perception pipeline using Kafka, Spark Structured Streaming, and CUDA-accelerated inference services, achieving 20 FPS with p95 end-to-end latency below 150 ms.",
+      "Designed robotic machining analytics models combining 1D-CNNs and gradient-boosted trees for defect prediction, and integrated MLflow telemetry to accelerate defect triage and improve reproducibility.",
     ],
   },
 ];
 
 const projects = [
   {
-    name: "Pasupathy-ai",
-    tag: "RAG | GenAI",
-    intention:
-      "Build a RAG-powered personal AI assistant that answers questions grounded in user-provided documents and knowledge, eliminating hallucinations through retrieved context.",
-    description: "A full-stack RAG application combining modern LLMs with semantic search. Users can upload documents and ask questions; the system retrieves relevant passages and passes them as context to Claude/Gemini for grounded responses.",
-    achievement:
-      "Built with React 18, TypeScript, Flask, FAISS, and Google Gemini; deployed with Docker on AWS Elastic Beanstalk (backend), S3 + CloudFront (frontend). Production metrics: 60-minute initial embedding build with HuggingFace models, 5-second FAISS index load, 2-5s query latency (embedding + retrieval + generation), 2 GB memory footprint, 500 MB index storage.",
-    details: "Key challenges: (1) Efficient embedding generation at scale—used batch processing to reduce latency; (2) FAISS retrieval quality—tuned IVF parameters for 95%+ recall at competitive latency; (3) Deployed with autoscaling on Beanstalk to handle variable load; (4) Frontend caching strategy reduced redundant API calls by 40%.",
-  },
-  {
-    name: "CLEVER: Cluster Level Eviction for Vector Embedding Retrieval",
+    name: "CLEVER – Cluster-Level Eviction for Vector Embedding Retrieval",
     tag: "MLOps | ANN",
-    intention:
-      "Benchmark approximate nearest neighbor (ANN) performance and semantic caching strategies under realistic LLM chat workloads to identify optimal trade-offs between latency, cost, and recall.",
-    description: "A comprehensive benchmarking framework evaluating ANN indices and caching strategies on 579K real LLM queries from LMSYS Chat 1M. Compares Flat, IVF, HNSW, and LSH over a semantic-similarity caching layer.",
-    achievement:
-      "Built framework on LMSYS Chat 1M (579,753 unique queries, 384-dimensional embeddings from SentenceTransformers). Evaluated retrieval strategies: HNSW achieved 0.996 recall at 0.56 ms latency (11,056 QPS) vs Flat's 1.000 recall at 17.39 ms (58 QPS). Semantic routing achieved 59.1% cache hit rate with 80.3% semantic quality retention and 60.3% latency savings at similarity threshold 0.76.",
-    details: "Findings: For production RAG systems, HNSW+semantic-caching beats exact search on latency by ~30x while maintaining practical recall. Used MLflow and custom dashboards to visualize trade-off curves. Code packaged for researchers; benchmarking utilities enable easy evaluation of new ANN methods.",
+    intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
+    description: "Built a semantic caching and ANN benchmarking framework on the LMSYS Chat-1M dataset with over 579k unique queries and 384-dimensional embeddings.",
+    achievement: "Benchmarked Flat, IVF, HNSW, and LSH vector indexes under realistic LLM retrieval workloads; HNSW achieved 0.996 recall at 0.56 ms and 11k+ QPS.",
+    details: "Designed a semantic-routing strategy achieving 59.1% cache hit rate, 80.3% semantic quality, and 60.3% latency reduction.",
   },
   {
-    name: "Attribution-Guided Masking for Robust Cross-Domain Sentiment Classification",
-    tag: "Research | NLP",
-    intention:
-      "Address domain shift in sentiment classification by identifying and penalizing highly domain-specific tokens during fine-tuning, enabling better zero-shot generalization across domains.",
-    description: "A novel training method (AGM) that uses gradient-based input attribution to flag tokens that excessively influence predictions. By masking these during training, the model learns more robust, domain-invariant features.",
-    achievement:
-      "Published on arXiv (2605.03091). Evaluated zero-shot across 4 target domains (8 random seeds each). On Sentiment140: AGM achieved Delta 0.244 vs baselines DANN 0.264, DRO 0.248, Fisher 0.247, IRM 0.238. Token-level attribution analysis confirmed suppression of domain-specific markers (mentions, hashtags, slang) while preserving sentiment signals.",
-    details: "Method: (1) Fine-tune BERT with standard cross-entropy; (2) Compute input gradients to estimate token importance; (3) Mask high-attribution tokens and re-train with masked-langauge-modeling regularization; (4) Repeat until convergence. Improves zero-shot generalization by ~6% on held-out domains compared to standard ERM.",
+    name: "Pasupathy-AI",
+    tag: "RAG | GenAI",
+    intention: "Build a production-style RAG personal AI assistant.",
+    description: "Built a RAG personal AI assistant using React, Flask, FAISS, and Google Gemini with Dockerized deployment on AWS.",
+    achievement: "Deployed scalable infrastructure using Elastic Beanstalk, S3, CloudFront, and CI/CD pipelines through GitHub Actions.",
+    details: "Optimized retrieval and embedding workflows, achieving 2–5 second query latency with efficient FAISS index loading and low-memory serving.",
+  },
+  {
+    name: "Spotify Music Recommender",
+    tag: "Recommenders | ML",
+    intention: "Low-latency hybrid music recommender combining collaborative and embedding-based methods.",
+    description: "Built a hybrid recommendation system combining LightFM collaborative filtering, OpenL3 embeddings, and FAISS ANN retrieval for low-latency music recommendation.",
+    achievement: "Developed a session-aware Transformer reranking pipeline for personalization and sequential recommendation optimization.",
+    details: "Designed evaluation workflows for offline Recall/NDCG benchmarking and playback A/B testing using Spotipy instrumentation.",
   },
 ];
 
@@ -122,6 +105,8 @@ const item = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 },
 };
+
+const resumeHref = "/resume.pdf?v=20260509";
 
 export function PortfolioHome() {
   const heroTitleRef = useRef<HTMLHeadingElement | null>(null);
@@ -185,7 +170,7 @@ export function PortfolioHome() {
             <a href="#skills" className="transition hover:text-white">Skills</a>
             <a href="#experience" className="transition hover:text-white">Experience</a>
             <a href="#projects" className="transition hover:text-white">Projects</a>
-            <a href="/resume.pdf" className="transition hover:text-white" download>
+            <a href={resumeHref} className="transition hover:text-white" download>
               Resume
             </a>
           </nav>
@@ -225,7 +210,7 @@ export function PortfolioHome() {
                 <a href="#projects">View Projects <ArrowUpRight className="h-4 w-4" /></a>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <a href="/resume.pdf" download>
+                <a href={resumeHref} download>
                   Resume <ArrowUpRight className="h-4 w-4" />
                 </a>
               </Button>
@@ -279,6 +264,27 @@ export function PortfolioHome() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="leadership" className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
+        <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Leadership</p>
+        <div className="mt-4 space-y-4">
+          <Card className="border-white/10 bg-white/[0.04]">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-white">Computer Society, MIT Chennai</CardTitle>
+                <span className="text-sm text-white/45">Aug 2022 - Apr 2024</span>
+              </div>
+              <CardDescription className="text-base text-white/75">SAE Autonomous Drone Competition – Project Manager & Applied Tech Lead</CardDescription>
+              <CardContent className="pt-3">
+                <ul className="list-disc pl-5 text-sm leading-7 text-white/70">
+                  <li>Led a 12-member cross-functional team building an autonomous drone platform for SAE collegiate competitions, coordinating perception, navigation, embedded systems, and testing workflows; designed project roadmaps and sprint planning processes to improve development velocity and reduce integration bottlenecks across subteams.</li>
+                  <li>Architected technical solutions and directed development of a computer-vision-assisted navigation pipeline using Python and OpenCV for obstacle awareness and flight-path stabilization.</li>
+                </ul>
+              </CardContent>
+            </CardHeader>
+          </Card>
         </div>
       </section>
 
@@ -349,6 +355,60 @@ export function PortfolioHome() {
         </div>
       </section>
 
+      <section id="education" className="mx-auto w-full max-w-7xl px-6 pb-12 sm:px-10 lg:px-12">
+        <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Education</p>
+        <div className="mt-4 space-y-4">
+          <Card className="border-white/10 bg-white/[0.04]">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-white">University of Michigan, Ann Arbor</CardTitle>
+                <span className="text-sm text-white/45">Aug 2024 - Dec 2026</span>
+              </div>
+              <CardDescription className="text-base text-white/75">MS, Data Science (GPA: 3.87)</CardDescription>
+              <p className="mt-2 text-sm leading-6 text-white/65">Coursework: Applied Machine Learning, Natural Language Processing, Statistical Inference, Advanced DBMS, Advanced Probability & Distribution, Regression Analysis, Reinforcement Learning</p>
+            </CardHeader>
+          </Card>
+
+          <Card className="border-white/10 bg-white/[0.04]">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-white">Madras Institute of Technology (MIT), Chennai</CardTitle>
+                <span className="text-sm text-white/45">Aug 2020 - Jun 2024</span>
+              </div>
+              <CardDescription className="text-base text-white/75">BE, Mechanical Engineering (GPA: 3.90)</CardDescription>
+              <p className="mt-2 text-sm leading-6 text-white/65">Coursework: Data Structures & Algorithms, Deep Learning, Software Engineering, Robotics Simulations</p>
+            </CardHeader>
+          </Card>
+        </div>
+      </section>
+
+      <section id="research" className="mx-auto w-full max-w-7xl px-6 pb-12 sm:px-10 lg:px-12">
+        <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Research Publication</p>
+        <div className="mt-4">
+          <Card className="border-white/10 bg-white/[0.04]">
+            <CardHeader>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <CardTitle className="text-white text-2xl">Attribution-Guided Masking for Robust Cross-Domain Sentiment Classification</CardTitle>
+                  <p className="mt-2 text-sm text-white/50">Under Review – BlackboxNLP Workshop 2026</p>
+                </div>
+                <Button asChild size="sm" variant="secondary">
+                  <a href="https://arxiv.org/abs/2605.03091" target="_blank" rel="noreferrer">
+                    <ArrowUpRight className="h-3 w-3" /> arXiv
+                  </a>
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <ul className="list-disc pl-5 text-sm leading-7 text-white/70">
+                <li>Proposed Attribution-Guided Masking (AGM), a training-time loss for suppressing domain-specific spurious tokens in cross-domain sentiment classification.</li>
+                <li>Evaluated zero-shot across 4 domains and outperformed IRM, Fish, DRO, and DANN baselines on Sentiment140.</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       <section id="projects" className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
         <div className="flex items-end justify-between gap-6">
           <div>
@@ -377,75 +437,7 @@ export function PortfolioHome() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Publication</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Research on domain-robust NLP.</h2>
-          </div>
-          <div className="flex gap-2 flex-col">
-            <a href="https://scholar.google.com/citations?user=HfY9ZRoAAAAJ&hl=en" target="_blank" rel="noreferrer" className="text-sm text-amber-300 hover:text-amber-200 transition">Google Scholar</a>
-          </div>
-        </div>
-        <div className="mt-6">
-          <Card className="border-white/10 bg-white/[0.04]">
-            <CardHeader>
-              <div className="text-xs uppercase tracking-[0.28em] text-amber-200/75 mb-2">NLP | Domain Generalization</div>
-              <div className="flex items-start justify-between gap-4">
-                <CardTitle className="text-white text-2xl">
-                  <a 
-                    href="https://arxiv.org/abs/2605.03091" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="hover:text-amber-300 transition"
-                  >
-                    Attribution-Guided Masking for Robust Cross-Domain Sentiment Classification
-                  </a>
-                </CardTitle>
-                <Button asChild size="sm" variant="secondary">
-                  <a href="https://arxiv.org/abs/2605.03091" target="_blank" rel="noreferrer">
-                    <ArrowUpRight className="h-3 w-3" /> arXiv
-                  </a>
-                </Button>
-              </div>
-              <p className="mt-2 text-sm text-white/50">arXiv:2605.03091 (2026)</p>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <p className="text-sm font-semibold text-white/90 mb-2">Overview</p>
-                <p className="text-sm leading-7 text-white/70">
-                  This paper addresses domain shift in sentiment classification—a key challenge when models trained on one domain (e.g., movie reviews) fail on new domains (tweets, product reviews). We propose Attribution-Guided Masking (AGM), a training procedure that identifies and suppresses highly domain-specific tokens to learn domain-invariant sentiment features.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-white/90 mb-2">Method</p>
-                <p className="text-sm leading-7 text-white/70">
-                  The approach uses gradient-based input attribution to measure token importance during fine-tuning. Tokens with high attribution (strongly influencing predictions) indicate domain-specific patterns. We mask these tokens and apply masked-language-modeling regularization, forcing the model to rely on more transferable sentiment signals rather than domain artifacts.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-white/90 mb-2">Results</p>
-                <p className="text-sm leading-7 text-white/70">
-                  Evaluated zero-shot across 4 target domains with 8 random seeds. On Sentiment140 target: AGM achieved maximum divergence (Delta) of 0.244 compared to strong baselines—DANN (0.264), DRO (0.248), Fish (0.247), and IRM (0.238). Attribution analysis confirmed suppression of domain-specific tokens (e.g., emojis, mentions, hashtags) while preserving core sentiment vocabulary. Results show ~6% improvement in zero-shot generalization vs. standard empirical risk minimization.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-white/90 mb-2">Impact</p>
-                <p className="text-sm leading-7 text-white/70">
-                  This work opens new directions for building more robust, domain-agnostic NLP models. The attribution-masking framework is model-agnostic and can extend to other text classification tasks. Key takeaway: training procedures that encourage interpretability (via attribution) can simultaneously improve generalization.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-white/10 flex gap-2">
-                <Button asChild size="sm" variant="secondary">
-                  <a href="https://x.com/Memoirs/status/2051927470941610228" target="_blank" rel="noreferrer">
-                    <ArrowUpRight className="h-3 w-3" /> Featured on X
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
         <Card className="border-amber-400/20 bg-gradient-to-r from-amber-400/10 via-white/[0.04] to-cyan-400/10">
@@ -459,7 +451,7 @@ export function PortfolioHome() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild>
-                <a href="/resume.pdf" download>Resume</a>
+                <a href={resumeHref} download>Resume</a>
               </Button>
               <Button asChild variant="secondary">
                 <a href="mailto:savyo@umich.edu"><Mail className="h-4 w-4" /> Email</a>
@@ -478,9 +470,6 @@ export function PortfolioHome() {
               </Button>
               <Button asChild variant="secondary">
                 <a href="https://arxiv.org/abs/2605.03091" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> arXiv</a>
-              </Button>
-              <Button asChild variant="secondary">
-                <a href="https://x.com/Memoirs/status/2051927470941610228" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> Featured on X</a>
               </Button>
             </div>
           </CardContent>
