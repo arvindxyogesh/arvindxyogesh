@@ -76,6 +76,7 @@ const projects = [
     intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
     description: "Built a semantic caching and ANN benchmarking framework on the LMSYS Chat-1M dataset with over 579k unique queries and 384-dimensional embeddings.",
     achievement: "Benchmarked Flat, IVF, HNSW, and LSH vector indexes under realistic LLM retrieval workloads; HNSW achieved 0.996 recall at 0.56 ms and 11k+ QPS.",
+    repo: "https://github.com/arvindxyogesh/CLEVER",
     details: "Designed a semantic-routing strategy achieving 59.1% cache hit rate, 80.3% semantic quality, and 60.3% latency reduction.",
   },
   {
@@ -84,6 +85,7 @@ const projects = [
     intention: "Build a production-style RAG personal AI assistant.",
     description: "Built a RAG personal AI assistant using React, Flask, FAISS, and Google Gemini with Dockerized deployment on AWS.",
     achievement: "Deployed scalable infrastructure using Elastic Beanstalk, S3, CloudFront, and CI/CD pipelines through GitHub Actions.",
+    repo: "https://github.com/arvindxyogesh/pasupathy-ai",
     details: "Optimized retrieval and embedding workflows, achieving 2–5 second query latency with efficient FAISS index loading and low-memory serving.",
   },
   {
@@ -92,6 +94,7 @@ const projects = [
     intention: "Low-latency hybrid music recommender combining collaborative and embedding-based methods.",
     description: "Built a hybrid recommendation system combining LightFM collaborative filtering, OpenL3 embeddings, and FAISS ANN retrieval for low-latency music recommendation.",
     achievement: "Developed a session-aware Transformer reranking pipeline for personalization and sequential recommendation optimization.",
+    repo: "https://github.com/arvindxyogesh/spotify-music-recommender",
     details: "Designed evaluation workflows for offline Recall/NDCG benchmarking and playback A/B testing using Spotipy instrumentation.",
   },
   {
@@ -100,6 +103,7 @@ const projects = [
     intention: "End-to-end pipeline for synthetic sensor generation and surface-quality prediction in robotic machining experiments.",
     description: "Physics-informed synthetic sensor generator, signal-processing feature extraction, vision-based surface monitoring, and regression benchmarking for Al6061 drilling experiments.",
     achievement: "Built a reproducible research pipeline producing feature matrices and cross-validated RMSE/R² benchmarks across Ridge, Random Forest, and Gradient Boosting models.",
+    repo: "https://github.com/arvindxyogesh/robotic-machining-analytics",
     details: "Includes configurable experiment YAMLs, synthetic generators, STFT/spectral features, and automated experiment orchestration for reproducible evaluation outputs.",
   },
   {
@@ -108,6 +112,7 @@ const projects = [
     intention: "Production-style streaming perception pipeline integrating ingest, GPU inference, and observability for ADAS workloads.",
     description: "Kafka + Spark Structured Streaming ingestion, CUDA-enabled PyTorch inference service, lane detection, and Streamlit dashboard for latency and throughput observability.",
     achievement: "Demonstrated a production-style stack with simulated 20 FPS streaming and documented p95 end-to-end latency targets below 150 ms; includes precision/recall evaluation workflows.",
+    repo: "https://github.com/arvindxyogesh/adas-perception-pipeline",
     details: "Features batched GPU inference, Prometheus metrics, dataset download scripts (KITTI/nuScenes/BDD), and evaluation scripts for frame-level precision/recall.",
   },
   {
@@ -116,6 +121,7 @@ const projects = [
     intention: "Real-time telemetry anomaly detection with synthetic data, streaming feature engineering, and online alerting.",
     description: "Telemetry simulator → Kafka ingest → Spark Structured Streaming feature job → Isolation Forest detector → alert API and Streamlit dashboard for monitoring.",
     achievement: "Implemented end-to-end streaming detection with batch evaluation tooling (precision/recall, false-positive rate, and mean detection delay) and low-latency alerting patterns.",
+    repo: "https://github.com/arvindxyogesh/vehicle-telemetry-anomaly-detection",
     details: "Includes synthetic telemetry generator, sliding-window feature engineering, isolation-forest model training/evaluation, and REST endpoints for latest alerts.",
   },
   {
@@ -124,6 +130,7 @@ const projects = [
     intention: "End-to-end quantitative forecasting and backtesting system for returns and volatility modeling.",
     description: "Data collection, feature engineering (lagged returns, technical indicators), ARIMA/ML baselines, GARCH volatility modeling, and backtesting with strategy metrics.",
     achievement: "Implemented ARIMA, Random Forest, XGBoost, and GARCH variants; experiments show realistic directional accuracy in the low-50% range and volatility modeling useful for risk analysis.",
+    repo: "https://github.com/arvindxyogesh/quant-forecasting",
     details: "Backtesting scripts report Sharpe ratio, drawdown, and strategy comparisons; modular pipeline for exploring regime-aware extensions and deep-learning models.",
   },
   {
@@ -132,6 +139,7 @@ const projects = [
     intention: "Implement DDPM-style diffusion models and U-Net samplers from first principles for image generation.",
     description: "DDPM forward/backward chains, U-Net denoiser with attention, EMA weight averaging, and sampling utilities with configurable noise schedules.",
     achievement: "Reference implementation supporting end-to-end training and sample generation; useful for hands-on understanding of diffusion sampling and conditional extensions.",
+    repo: "https://github.com/arvindxyogesh/diffusion-model-from-scratch",
     details: "Includes training scripts, sample generation, and lightweight examples for quick CPU demos and reproducible tests.",
   },
   {
@@ -140,6 +148,7 @@ const projects = [
     intention: "Pipeline for clinical note preprocessing, de-identification, NER, and ICD-10 classification.",
     description: "Text cleaning, abbreviation expansion, HIPAA Safe Harbor de-identification, rule-based NER, and ICD-10 mapping for downstream analytics.",
     achievement: "Packaged a privacy-aware preprocessing and ICD-10 classification pipeline with tests and synthetic-note generators for reproducible demos.",
+    repo: "https://github.com/arvindxyogesh/clinical-nlp-pipeline",
     details: "Components include de-identification, entity extraction, ICD classifier, and evaluation harnesses with pytest suites and example demos.",
   },
 ];
@@ -479,6 +488,15 @@ export function PortfolioHome() {
                   <span className="font-semibold text-white/90">Achievement:</span> {project.achievement}
                 </CardDescription>
                 <p className="mt-2 text-sm leading-7 text-white/65 italic">{project.details}</p>
+                {project.repo && (
+                  <div className="mt-4">
+                    <Button asChild size="sm" variant="secondary">
+                      <a href={project.repo} target="_blank" rel="noreferrer">
+                        <ArrowUpRight className="h-3 w-3 mr-2 inline" /> View on GitHub
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </CardHeader>
             </Card>
           ))}
