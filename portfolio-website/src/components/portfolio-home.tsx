@@ -71,6 +71,15 @@ const experience = [
 
 const projects = [
   {
+    name: "Robotic Policy Learning — Continuous Control",
+    tag: "Robotics | RL",
+    intention: "Develop and evaluate reinforcement-learning policies for continuous control in simulated and real robotic platforms.",
+    description: "End-to-end pipeline for training, sim-to-real transfer, and evaluation of continuous-control policies using RL algorithms and physics-informed simulators.",
+    achievement: "Trained robust policy ensembles with domain randomization and system identification; demonstrated safer transfer to hardware with closed-loop evaluation harnesses and logging.",
+    repo: "https://github.com/arvindxyogesh/robot-policy-learning-continuous-control",
+    details: "Includes training scripts, sim wrappers, system ID utilities, and evaluation notebooks for reproducible robot policy experiments.",
+  },
+  {
     name: "CLEVER – Cluster-Level Eviction for Vector Embedding Retrieval",
     tag: "MLOps | ANN",
     intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
@@ -236,21 +245,21 @@ export function PortfolioHome() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
           <div ref={heroWrapRef} className="relative z-10 max-w-3xl">
             <div ref={heroKickerRef} className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm text-amber-100">
-              <Sparkles className="h-4 w-4" /> ML systems, forecasting, LLMs, and production ML deployment
+              <Sparkles className="h-4 w-4" /> Robotic learning, ML systems, and production ML deployment
             </div>
 
             <h1 ref={heroTitleRef} className="max-w-4xl text-5xl font-semibold leading-[1.03] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Building reliable ML systems and software products that ship with confidence.
+              Building reliable ML systems and robotic learning solutions that ship with confidence.
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-              I'm Arvind, a Machine Learning Engineer and MS Data Science student at the University of Michigan focused on designing and deploying scalable ML systems. My work spans end-to-end machine learning pipelines, RAG systems, forecasting architectures, high-throughput data workflows, telemetry processing, and production-oriented ML deployment.
+              I'm Arvind, a Machine Learning Engineer and MS Data Science student at the University of Michigan focused on designing and deploying scalable ML systems. My work spans end-to-end machine learning pipelines, RAG systems, forecasting architectures, robotic learning and control, high-throughput data workflows, telemetry processing, and production-oriented ML deployment.
             </p>
 
             <div ref={heroMetricsRef} className="mt-8 flex flex-wrap gap-3 text-sm text-white/70">
               {[
                 "PyTorch, FAISS, Spark, Kafka, FastAPI",
-                "LLMs, RAG, forecasting, and anomaly detection",
+                "LLMs, RAG, forecasting, robotic learning, and anomaly detection",
                 "Production ML deployment and distributed systems",
               ].map((metric) => (
                 <div key={metric} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2">
@@ -307,16 +316,16 @@ export function PortfolioHome() {
             <div className="absolute inset-x-5 bottom-5 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 backdrop-blur-xl">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/45">Focus</p>
-                <p className="mt-2 text-lg font-semibold">ML engineer + SWE</p>
-                <p className="mt-2 text-sm leading-6 text-white/65">
-                  Practical ML systems, robust APIs, and scalable data workflows for production use.
-                </p>
+                  <p className="mt-2 text-lg font-semibold">ML engineer + Robotics</p>
+                  <p className="mt-2 text-sm leading-6 text-white/65">
+                    Practical ML systems, robotic learning, robust APIs, and scalable data workflows for production use.
+                  </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 backdrop-blur-xl">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/45">Strengths</p>
-                <p className="mt-2 text-lg font-semibold">ML research + production</p>
+                <p className="mt-2 text-lg font-semibold">ML research + robotics</p>
                 <p className="mt-2 text-sm leading-6 text-white/65">
-                  Forecasting, semantic search, RAG systems, and deployment workflows that ship reliably.
+                  Forecasting, robotic learning, semantic search, RAG systems, and deployment workflows that ship reliably.
                 </p>
               </div>
             </div>
@@ -369,7 +378,7 @@ export function PortfolioHome() {
         <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Skills</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Built for ML engineering and production software systems.</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Built for ML engineering, robotics, and production software systems.</h2>
             <p className="mt-4 max-w-xl leading-7 text-white/68">
               The portfolio emphasizes concrete tools and clear categories so it reads well for ATS and for technical reviewers.
             </p>
@@ -510,7 +519,7 @@ export function PortfolioHome() {
           <CardContent className="flex flex-col items-start justify-between gap-6 p-7 lg:flex-row lg:items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.28em] text-amber-200/80">Ready to collaborate?</p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">Let's work on ML systems and production AI together.</h3>
+              <h3 className="mt-3 text-2xl font-semibold text-white">Let's work on ML systems, robotic learning, and production AI together.</h3>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/68">
                 Reach out if you're looking for ML engineering expertise in forecasting, RAG systems, distributed data infrastructure, or production ML deployment.
               </p>
