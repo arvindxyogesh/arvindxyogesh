@@ -25,8 +25,8 @@ import {
 } from "@/components/ui/card";
 
 const skills = [
-  `Robotic Learning & AI: Python, PyTorch, TensorFlow, reinforcement learning, trajectory forecasting, CNNs, transformers, scikit-learn, MLflow, TensorBoard`,
-  `Robotics, Autonomy & Systems: C++, ROS, Open3D, closed-loop simulation, perception-to-planning evaluation, ADAS perception, autonomous systems, Linux, Bash`,
+  `Machine Learning & AI: Python, PyTorch, TensorFlow, LLMs, RAG, reinforcement learning, CNNs, transformers, scikit-learn, MLflow, TensorBoard`,
+  `Software Systems & Simulation: C++, ROS, Open3D, closed-loop simulation, evaluation pipelines, distributed systems, Linux, Bash`,
   `AI Infrastructure & Deployment: CUDA-accelerated inference, ONNX Runtime, Kafka, Spark, PySpark, Airflow, Docker, AWS, Git, FastAPI, FAISS, SQL`,
 ];
 
@@ -68,6 +68,33 @@ const experience = [
 
 const projects = [
   {
+    name: "Diffusion Model From Scratch",
+    tag: "Generative Models | Deep Learning",
+    intention: "Implement DDPM-style diffusion models and U-Net samplers from first principles for image generation.",
+    description: "DDPM forward/backward chains, U-Net denoiser with attention, EMA weight averaging, and sampling utilities with configurable noise schedules.",
+    achievement: "Reference implementation supporting end-to-end training and sample generation; useful for hands-on understanding of diffusion sampling and conditional extensions.",
+    repo: "https://github.com/arvindxyogesh/diffusion-model-from-scratch",
+    details: "Includes training scripts, sample generation, and lightweight examples for quick CPU demos and reproducible tests.",
+  },
+  {
+    name: "Pasupathy-AI",
+    tag: "RAG | GenAI",
+    intention: "Build a production-style RAG personal AI assistant.",
+    description: "Built a RAG personal AI assistant using React, Flask, FAISS, and Google Gemini with Dockerized deployment on AWS.",
+    achievement: "Deployed scalable infrastructure using Elastic Beanstalk, S3, CloudFront, and CI/CD pipelines through GitHub Actions.",
+    repo: "https://github.com/arvindxyogesh/pasupathy-ai",
+    details: "Optimized retrieval and embedding workflows for low-latency retrieval.",
+  },
+  {
+    name: "CLEVER – Cluster-Level Eviction for Vector Embedding Retrieval",
+    tag: "MLOps | ANN",
+    intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
+    description: "Built a semantic caching and ANN benchmarking framework on the LMSYS Chat-1M dataset with over 579k unique queries and 384-dimensional embeddings.",
+    achievement: "Benchmarked Flat, IVF, HNSW, and LSH vector indexes under realistic LLM retrieval workloads.",
+    repo: "https://github.com/arvindxyogesh/CLEVER",
+    details: "Designed a semantic-routing strategy achieving improved cache hit rates and latency reductions.",
+  },
+  {
     name: "Robot Policy Learning for Continuous Control",
     tag: "Reinforcement Learning | Robotics | PyTorch",
     intention: "Train and evaluate continuous-control robot policies for simulated robotics environments.",
@@ -86,15 +113,6 @@ const projects = [
     details: "Features batched GPU inference, Prometheus metrics, dataset download scripts (KITTI/nuScenes/BDD), and evaluation scripts for frame-level precision/recall.",
   },
   {
-    name: "Robotic Machining Analytics",
-    tag: "Signal Processing | Predictive Modeling",
-    intention: "End-to-end pipeline for synthetic sensor generation and surface-quality prediction in robotic machining experiments.",
-    description: "Physics-informed synthetic sensor generator, signal-processing feature extraction, vision-based surface monitoring, and regression benchmarking for Al6061 drilling experiments.",
-    achievement: "Built a reproducible research pipeline producing feature matrices and cross-validated RMSE/R² benchmarks across Ridge, Random Forest, and Gradient Boosting models.",
-    repo: "https://github.com/arvindxyogesh/robotic-machining-analytics",
-    details: "Includes configurable experiment YAMLs, synthetic generators, STFT/spectral features, and automated experiment orchestration for reproducible evaluation outputs.",
-  },
-  {
     name: "Vehicle Telemetry Anomaly Detection",
     tag: "Time-Series | Streaming | Anomaly Detection",
     intention: "Real-time telemetry anomaly detection with synthetic data, streaming feature engineering, and online alerting.",
@@ -104,31 +122,13 @@ const projects = [
     details: "Includes synthetic telemetry generator, sliding-window feature engineering, isolation-forest model training/evaluation, and REST endpoints for latest alerts.",
   },
   {
-    name: "Diffusion Model From Scratch",
-    tag: "Generative Models | Deep Learning",
-    intention: "Implement DDPM-style diffusion models and U-Net samplers from first principles for image generation.",
-    description: "DDPM forward/backward chains, U-Net denoiser with attention, EMA weight averaging, and sampling utilities with configurable noise schedules.",
-    achievement: "Reference implementation supporting end-to-end training and sample generation; useful for hands-on understanding of diffusion sampling and conditional extensions.",
-    repo: "https://github.com/arvindxyogesh/diffusion-model-from-scratch",
-    details: "Includes training scripts, sample generation, and lightweight examples for quick CPU demos and reproducible tests.",
-  },
-  {
-    name: "CLEVER – Cluster-Level Eviction for Vector Embedding Retrieval",
-    tag: "MLOps | ANN",
-    intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
-    description: "Built a semantic caching and ANN benchmarking framework on the LMSYS Chat-1M dataset with over 579k unique queries and 384-dimensional embeddings.",
-    achievement: "Benchmarked Flat, IVF, HNSW, and LSH vector indexes under realistic LLM retrieval workloads.",
-    repo: "https://github.com/arvindxyogesh/CLEVER",
-    details: "Designed a semantic-routing strategy achieving improved cache hit rates and latency reductions.",
-  },
-  {
-    name: "Pasupathy-AI",
-    tag: "RAG | GenAI",
-    intention: "Build a production-style RAG personal AI assistant.",
-    description: "Built a RAG personal AI assistant using React, Flask, FAISS, and Google Gemini with Dockerized deployment on AWS.",
-    achievement: "Deployed scalable infrastructure using Elastic Beanstalk, S3, CloudFront, and CI/CD pipelines through GitHub Actions.",
-    repo: "https://github.com/arvindxyogesh/pasupathy-ai",
-    details: "Optimized retrieval and embedding workflows for low-latency retrieval.",
+    name: "Robotic Machining Analytics",
+    tag: "Signal Processing | Predictive Modeling",
+    intention: "End-to-end pipeline for synthetic sensor generation and surface-quality prediction in robotic machining experiments.",
+    description: "Physics-informed synthetic sensor generator, signal-processing feature extraction, vision-based surface monitoring, and regression benchmarking for Al6061 drilling experiments.",
+    achievement: "Built a reproducible research pipeline producing feature matrices and cross-validated RMSE/R² benchmarks across Ridge, Random Forest, and Gradient Boosting models.",
+    repo: "https://github.com/arvindxyogesh/robotic-machining-analytics",
+    details: "Includes configurable experiment YAMLs, synthetic generators, STFT/spectral features, and automated experiment orchestration for reproducible evaluation outputs.",
   },
 ];
 
@@ -215,15 +215,15 @@ export function PortfolioHome() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
           <div ref={heroWrapRef} className="relative z-10 max-w-3xl">
             <div ref={heroKickerRef} className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm text-amber-100">
-              <Sparkles className="h-4 w-4" /> Robotic Learning • Reinforcement Learning • Real-Time AI Systems
+              <Sparkles className="h-4 w-4" /> AI/ML Software Engineer • LLMs & RAG • Production ML Systems
             </div>
 
             <h1 ref={heroTitleRef} className="max-w-4xl text-5xl font-semibold leading-[1.03] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Building robotic learning and real-time AI systems for autonomy.
+              Building AI/ML systems and production software.
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-              I’m Arvind, an MS Data Science student at the University of Michigan focused on reinforcement learning, robotic learning, autonomy systems, and production ML. My work spans robot policy learning, perception-to-planning evaluation, trajectory forecasting, closed-loop simulation, real-time ADAS perception, and low-latency AI deployment for autonomous systems.
+              I’m Arvind, an MS Data Science student at the University of Michigan building AI/ML systems end to end — from LLM-powered applications and retrieval-augmented generation to production ML infrastructure, generative models, and real-time inference. My work spans machine learning engineering, applied research, MLOps, and scalable AI deployment, with recent experience in robotic learning and perception systems at U-M&apos;s Mcity.
             </p>
 
             <div ref={heroMetricsRef} className="mt-8 flex flex-wrap gap-3 text-sm text-white/70">
@@ -257,9 +257,9 @@ export function PortfolioHome() {
 
             <div className="mt-12 grid gap-4 sm:grid-cols-3">
               {[
-                ["Robotic Learning", "Reinforcement learning, policy evaluation, trajectory forecasting, and continuous-control robotics."],
-                ["Autonomy Systems", "ROS/Open3D perception-to-planning evaluation, closed-loop testing, ADAS perception, and sensor pipelines."],
-                ["AI Performance", "CUDA-accelerated inference, ONNX Runtime, streaming systems, latency optimization, and model deployment."],
+                ["Machine Learning Engineering", "Deep learning, reinforcement learning, generative models, and applied research."],
+                ["LLM & RAG Systems", "Retrieval-augmented generation, semantic search, vector indexes, and applied NLP."],
+                ["AI Infrastructure", "CUDA-accelerated inference, ONNX Runtime, streaming systems, latency optimization, and model deployment."],
               ].map(([label, desc]) => (
                 <Card key={label} className="border-white/10 bg-white/[0.04]">
                   <CardHeader className="p-5">
@@ -286,16 +286,16 @@ export function PortfolioHome() {
             <div className="absolute inset-x-5 bottom-5 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 backdrop-blur-xl">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/45">Focus</p>
-                  <p className="mt-2 text-lg font-semibold">Robotic Learning & AI Systems Engineer</p>
+                  <p className="mt-2 text-lg font-semibold">AI/ML Software Engineer</p>
                   <p className="mt-2 text-sm leading-6 text-white/65">
-                    Reinforcement learning, autonomy ML, real-time perception, and production AI systems for robotics applications.
+                    Machine learning engineering, LLM systems, and production AI infrastructure across research and industry.
                   </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 backdrop-blur-xl">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/45">Strengths</p>
-                <p className="mt-2 text-lg font-semibold">ML research + robotics</p>
+                <p className="mt-2 text-lg font-semibold">ML engineering + applied research</p>
                 <p className="mt-2 text-sm leading-6 text-white/65">
-                  Forecasting, robotic learning, semantic search, RAG systems, and deployment workflows that ship reliably.
+                  Forecasting, generative models, semantic search, RAG systems, and deployment workflows that ship reliably.
                 </p>
               </div>
             </div>
@@ -348,7 +348,7 @@ export function PortfolioHome() {
         <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Skills</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Built for robotic learning, autonomy ML, and real-time AI systems.</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Built for AI/ML engineering, LLM systems, and production software.</h2>
             <p className="mt-4 max-w-xl leading-7 text-white/68">
               The portfolio emphasizes concrete tools and clear categories so it reads well for ATS and for technical reviewers.
             </p>
@@ -449,9 +449,9 @@ export function PortfolioHome() {
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Projects</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Robotic learning, autonomy systems, and production AI.</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Machine learning systems, LLM applications, and production AI.</h2>
           </div>
-          <div className="hidden text-sm text-white/50 lg:block">Projects focused on robot policy learning, real-time perception, closed-loop evaluation, and AI systems deployment.</div>
+          <div className="hidden text-sm text-white/50 lg:block">Projects spanning generative models, RAG/LLM systems, ML infrastructure, and applied robotics research.</div>
         </div>
         <div className="mt-6 grid gap-6 lg:grid-cols-1">
           {projects.map((project) => (
@@ -489,9 +489,9 @@ export function PortfolioHome() {
           <CardContent className="flex flex-col items-start justify-between gap-6 p-7 lg:flex-row lg:items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.28em] text-amber-200/80">Ready to collaborate?</p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">Let’s build robotic learning and real-time AI systems together.</h3>
+              <h3 className="mt-3 text-2xl font-semibold text-white">Let’s build AI/ML systems and production software together.</h3>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/68">
-                Reach out if you’re looking for work across reinforcement learning, robotic learning, autonomy ML, real-time perception, model evaluation, or production AI systems.
+                Reach out if you’re looking for work across machine learning engineering, LLM/RAG systems, MLOps, model evaluation, or production AI infrastructure.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">

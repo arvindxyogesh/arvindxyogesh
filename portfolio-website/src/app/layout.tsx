@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arvind Yogesh | ML Engineer & SWE Portfolio",
+  title: "Arvind Yogesh | AI/ML Software Engineer",
   description:
-    "Portfolio for Arvind Yogesh, focused on machine learning engineering, software systems, MLOps, and AI-driven infrastructure.",
+    "Portfolio for Arvind Yogesh, an AI/ML software engineer focused on machine learning engineering, LLM & RAG systems, MLOps, and production AI infrastructure.",
 };
 
 export default function RootLayout({
