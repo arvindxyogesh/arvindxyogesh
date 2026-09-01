@@ -25,21 +25,32 @@ import {
 } from "@/components/ui/card";
 
 const skills = [
-  `Robotic Learning & AI: Python, PyTorch, TensorFlow, reinforcement learning, trajectory forecasting, CNNs, transformers, scikit-learn, MLflow, TensorBoard`,
-  `Robotics, Autonomy & Systems: C++, ROS, Open3D, closed-loop simulation, perception-to-planning evaluation, ADAS perception, autonomous systems, Linux, Bash`,
-  `AI Infrastructure & Deployment: CUDA-accelerated inference, ONNX Runtime, Kafka, Spark, PySpark, Airflow, Docker, AWS, Git, FastAPI, FAISS, SQL`,
+  `Languages: Python, SQL, C++, Java, Go`,
+  `ML/AI Frameworks: PyTorch, TensorFlow, scikit-learn, Hugging Face Transformers, LangChain, RAG pipelines, reinforcement learning, computer vision, adversarial ML, MLflow, TensorBoard`,
+  `MLOps & Infrastructure: Docker, Terraform, Kafka, Spark, PySpark, ONNX Runtime, Airflow, AWS (S3, CloudFront, Elastic Beanstalk), CI/CD (GitHub Actions), Git, Linux`,
+  `Backend & Data: FastAPI, Flask, Open3D, ROS, FAISS, vector search, Tableau, MongoDB`,
 ];
 
 const experience = [
   {
+    title: "Prof. Z. Morley Mao's Research Group, University of Michigan",
+    role: "Research Intern – AI Security & Machine Learning",
+    period: "Jun 2026 - Present",
+    description: "Ann Arbor, United States",
+    points: [
+      "Built a modular adversarial machine learning attack framework using PyTorch, targeting vision-language-action (VLA) models for autonomous driving across two model backends (ReCogDrive, Alpamayo).",
+      "Implemented differentiable Stanley and PID controllers and a kinematic bicycle model in Python to design closed-loop attack loss functions including steering command, curvature, and heading discontinuity.",
+      "Designed a scene vulnerability analysis tool ranking autonomous driving scenarios by decision-boundary proximity using mode entropy and cluster separation metrics, validated with a 44-test automated unit test suite.",
+    ],
+  },
+  {
     title: "M-City, University of Michigan",
     role: "Student ML Researcher",
-    period: "Sep 2025 - Present",
-    description: "Ann Arbor",
+    period: "Sep 2025 - May 2026",
+    description: "Ann Arbor, United States",
     points: [
-      "Built an automated perception-to-planning evaluation pipeline using ROS, Open3D, and Python, reducing manual testing effort by 70% and enabling batched A/B model evaluation.",
-      "Trained a multi-task perception and short-horizon forecasting model in PyTorch, reducing 0–3s trajectory prediction error by 15% and lowering collision-warning events by 9% in closed-loop simulations.",
-      "Added multimodal experiment tracking, distribution-shift monitoring, and regression testing using MLflow and TensorBoard to improve model reliability and rollback validation.",
+      "Built and maintained automated ML evaluation pipelines using ROS, Open3D, and Python for batched model benchmarking, reducing manual testing effort by 63%.",
+      "Supported dataset preparation, annotation quality checks, and fine-tuning for Co-DETR object-detection models; trained and evaluated CV models in PyTorch with MLflow/TensorBoard tracking for model comparison and distribution-shift analysis.",
     ],
   },
   {
@@ -48,25 +59,59 @@ const experience = [
     period: "Jun 2024 - Jul 2025",
     description: "Chennai, India",
     points: [
-      "Developed gearbox-failure forecasting models using SCADA telemetry, maintenance logs, and engineered time-series features, achieving 0.82 AUC with median alert lead times of approximately 18 days.",
-      "Productionized streaming inference pipelines using Kafka, Spark, ONNX Runtime, and Airflow-managed retraining workflows, achieving 80 ms median latency.",
-      "Reduced unplanned turbine downtime by 25% and integrated spare-parts demand forecasting into maintenance scheduling, reducing inventory overstock by 15%.",
+      "Developed time-series forecasting models on SCADA telemetry and engineered features, achieving 0.82 AUC with a median 18-day alert lead time for predictive maintenance.",
+      "Built scalable ML workflows using Kafka, Spark, ONNX Runtime, and Airflow for anomaly detection, batch inference, and automated retraining, improving supply-planning accuracy by 56% — earned the Q1 Spot Award.",
     ],
   },
   {
     title: "Computer Society, MIT",
-    role: "ML Engineer",
-    period: "Mar 2021 - Jun 2024",
+    role: "ML Engineer / Technical Lead",
+    period: "Feb 2021 - Jun 2024",
     description: "Chennai, India",
     points: [
-      "Built a semantic retrieval pipeline using sentence-transformers, LLM reranking, and vector search, improving Top-1 relevance by 28%, tripling throughput, and reducing CPU cost by 2.5x.",
-      "Developed a real-time ADAS perception pipeline using Kafka, Spark Structured Streaming, and CUDA-accelerated inference services, achieving 20 FPS with p95 end-to-end latency below 150 ms.",
-      "Designed robotic machining analytics models combining 1D-CNNs and gradient-boosted trees for defect prediction, and integrated MLflow telemetry to accelerate defect triage and improve reproducibility.",
+      "Built RoadSense, a real-time streaming perception pipeline using Apache Kafka, Spark Structured Streaming, and CUDA-accelerated PyTorch inference, containerized across four microservices with Docker Compose and Prometheus monitoring.",
+      "Benchmarked Faster R-CNN and SSDLite MobileNetV3 on an NVIDIA H200 GPU, achieving 9.9ms and 14.9ms median latency (99.6 and 64.2 FPS), both clearing the 150ms real-time target.",
     ],
   },
 ];
 
 const projects = [
+  {
+    name: "Synapse – Open-Source LLM Gateway",
+    tag: "LLM Infra | FastAPI | Semantic Caching",
+    intention: "Build a self-hosted, OpenAI-API-compatible LLM gateway with semantic caching and observability.",
+    description: "FastAPI + React + Redis + Postgres gateway that sits in front of the real OpenAI SDK, adding semantic response caching (Redis ANN vector search), streaming, per-key rate limiting/quotas, and cost/latency observability — verified with automated tests against the actual openai SDK, not just schema comparison.",
+    achievement: "Designed a self-tuning cache-correctness controller using LLM-judge shadow verification to auto-calibrate similarity thresholds, holding precision at 98–100% under real GPU-served inference (Llama 3.1 8B, H200).",
+    repo: "https://github.com/arvindxyogesh/Synapse",
+    details: "Open-source, CI-tested gateway with Docker Compose deployment, an Alembic-managed Postgres schema, and a live React dashboard for charts, a chat playground, and API key management.",
+  },
+  {
+    name: "Attribution-Guided Masking for Robust Cross-Domain Sentiment Classification",
+    tag: "NLP | Domain Generalization | Research",
+    intention: "Test whether gradient-based attribution can detect and correct cross-domain generalization failure in transformer sentiment classifiers.",
+    description: "Co-developed Attribution-Guided Masking (AGM), a training-time regularizer that penalizes attribution mass on spurious tokens to improve robustness across sentiment domains.",
+    achievement: "Reduced cross-domain generalization gap to 0.013–0.244 across 4 sentiment domains (IMDb, Amazon, Hotel, Sentiment140), matching or beating DANN, IRM, Group DRO, and Fish on 3 of 4 zero-shot transfer targets under a strict bootstrap-CI evaluation across 12 domain-transfer pairs.",
+    repo: "https://github.com/arvindxyogesh/AGM-NLP",
+    details: "Reports negative results in full — attribution alone is a poor post-hoc diagnostic of generalization failure — with ablations isolating attribution-guided masking as the actual driver of improvement.",
+  },
+  {
+    name: "RoadSense – Real-Time ADAS Perception Pipeline",
+    tag: "Streaming | CV | MLOps",
+    intention: "Production-style streaming perception pipeline integrating ingest, GPU inference, and observability for ADAS workloads.",
+    description: "Kafka + Spark Structured Streaming ingestion, CUDA-enabled PyTorch inference service, lane detection, and Streamlit dashboard for latency and throughput observability, containerized across four microservices with Docker Compose and Prometheus monitoring.",
+    achievement: "Benchmarked Faster R-CNN and SSDLite MobileNetV3 on an NVIDIA H200 GPU, achieving 9.9ms and 14.9ms median latency (99.6 and 64.2 FPS), both clearing the 150ms real-time target.",
+    repo: "https://github.com/arvindxyogesh/RoadSense",
+    details: "Features batched GPU inference, Prometheus metrics, dataset download scripts (KITTI/nuScenes/BDD), and evaluation scripts for frame-level precision/recall.",
+  },
+  {
+    name: "Telesentry – Vehicle Telemetry Anomaly Detection",
+    tag: "Time-Series | Streaming | Anomaly Detection",
+    intention: "Benchmark classical vs. deep sequence anomaly detectors for real-time vehicle telemetry.",
+    description: "Compares Isolation Forest against an LSTM autoencoder and a self-attention/Transformer detector on a labeled, multi-type synthetic vehicle telemetry benchmark, then serves the winning model through a Kafka + Spark Structured Streaming pipeline behind a REST API and a live dashboard.",
+    achievement: "The LSTM autoencoder reached 0.734 AUROC and 0.530 F1 on a held-out set of 46K rows across 8 unseen vehicles, catching failure modes — sensor drift, GPS spoofing, dropout bursts — that a fixed-threshold baseline misses entirely.",
+    repo: "https://github.com/arvindxyogesh/Telesentry",
+    details: "Five independently-labeled anomaly types with distinct multivariate signatures, 7 engineered rolling-window features, and models calibrated to a shared false-positive-rate target for a fair comparison.",
+  },
   {
     name: "Robot Policy Learning for Continuous Control",
     tag: "Reinforcement Learning | Robotics | PyTorch",
@@ -77,42 +122,6 @@ const projects = [
     details: "PPO training loop, actor-critic networks, rollout buffer, GAE, checkpoint loading, evaluation scripts, TensorBoard logging, and policy inference benchmarking.",
   },
   {
-    name: "ADAS Real-Time Perception Pipeline",
-    tag: "Streaming | CV | MLOps",
-    intention: "Production-style streaming perception pipeline integrating ingest, GPU inference, and observability for ADAS workloads.",
-    description: "Kafka + Spark Structured Streaming ingestion, CUDA-enabled PyTorch inference service, lane detection, and Streamlit dashboard for latency and throughput observability.",
-    achievement: "Demonstrated a production-style stack with simulated 20 FPS streaming and documented p95 end-to-end latency targets below 150 ms; includes precision/recall evaluation workflows.",
-    repo: "https://github.com/arvindxyogesh/adas-perception-pipeline",
-    details: "Features batched GPU inference, Prometheus metrics, dataset download scripts (KITTI/nuScenes/BDD), and evaluation scripts for frame-level precision/recall.",
-  },
-  {
-    name: "Robotic Machining Analytics",
-    tag: "Signal Processing | Predictive Modeling",
-    intention: "End-to-end pipeline for synthetic sensor generation and surface-quality prediction in robotic machining experiments.",
-    description: "Physics-informed synthetic sensor generator, signal-processing feature extraction, vision-based surface monitoring, and regression benchmarking for Al6061 drilling experiments.",
-    achievement: "Built a reproducible research pipeline producing feature matrices and cross-validated RMSE/R² benchmarks across Ridge, Random Forest, and Gradient Boosting models.",
-    repo: "https://github.com/arvindxyogesh/robotic-machining-analytics",
-    details: "Includes configurable experiment YAMLs, synthetic generators, STFT/spectral features, and automated experiment orchestration for reproducible evaluation outputs.",
-  },
-  {
-    name: "Vehicle Telemetry Anomaly Detection",
-    tag: "Time-Series | Streaming | Anomaly Detection",
-    intention: "Real-time telemetry anomaly detection with synthetic data, streaming feature engineering, and online alerting.",
-    description: "Telemetry simulator → Kafka ingest → Spark Structured Streaming feature job → Isolation Forest detector → alert API and Streamlit dashboard for monitoring.",
-    achievement: "Implemented end-to-end streaming detection with batch evaluation tooling (precision/recall, false-positive rate, and mean detection delay) and low-latency alerting patterns.",
-    repo: "https://github.com/arvindxyogesh/vehicle-telemetry-anomaly-detection",
-    details: "Includes synthetic telemetry generator, sliding-window feature engineering, isolation-forest model training/evaluation, and REST endpoints for latest alerts.",
-  },
-  {
-    name: "Diffusion Model From Scratch",
-    tag: "Generative Models | Deep Learning",
-    intention: "Implement DDPM-style diffusion models and U-Net samplers from first principles for image generation.",
-    description: "DDPM forward/backward chains, U-Net denoiser with attention, EMA weight averaging, and sampling utilities with configurable noise schedules.",
-    achievement: "Reference implementation supporting end-to-end training and sample generation; useful for hands-on understanding of diffusion sampling and conditional extensions.",
-    repo: "https://github.com/arvindxyogesh/diffusion-model-from-scratch",
-    details: "Includes training scripts, sample generation, and lightweight examples for quick CPU demos and reproducible tests.",
-  },
-  {
     name: "CLEVER – Cluster-Level Eviction for Vector Embedding Retrieval",
     tag: "MLOps | ANN",
     intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
@@ -120,15 +129,6 @@ const projects = [
     achievement: "Benchmarked Flat, IVF, HNSW, and LSH vector indexes under realistic LLM retrieval workloads.",
     repo: "https://github.com/arvindxyogesh/CLEVER",
     details: "Designed a semantic-routing strategy achieving improved cache hit rates and latency reductions.",
-  },
-  {
-    name: "Pasupathy-AI",
-    tag: "RAG | GenAI",
-    intention: "Build a production-style RAG personal AI assistant.",
-    description: "Built a RAG personal AI assistant using React, Flask, FAISS, and Google Gemini with Dockerized deployment on AWS.",
-    achievement: "Deployed scalable infrastructure using Elastic Beanstalk, S3, CloudFront, and CI/CD pipelines through GitHub Actions.",
-    repo: "https://github.com/arvindxyogesh/pasupathy-ai",
-    details: "Optimized retrieval and embedding workflows for low-latency retrieval.",
   },
 ];
 
@@ -215,15 +215,15 @@ export function PortfolioHome() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
           <div ref={heroWrapRef} className="relative z-10 max-w-3xl">
             <div ref={heroKickerRef} className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm text-amber-100">
-              <Sparkles className="h-4 w-4" /> Robotic Learning • Reinforcement Learning • Real-Time AI Systems
+              <Sparkles className="h-4 w-4" /> AI/ML Software Engineer • LLMs & RAG • Production ML Systems
             </div>
 
             <h1 ref={heroTitleRef} className="max-w-4xl text-5xl font-semibold leading-[1.03] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Building robotic learning and real-time AI systems for autonomy.
+              Building AI/ML systems and production software.
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-              I’m Arvind, an MS Data Science student at the University of Michigan focused on reinforcement learning, robotic learning, autonomy systems, and production ML. My work spans robot policy learning, perception-to-planning evaluation, trajectory forecasting, closed-loop simulation, real-time ADAS perception, and low-latency AI deployment for autonomous systems.
+              I’m Arvind, an MS Data Science student at the University of Michigan building AI/ML systems end to end — from LLM-powered applications and retrieval-augmented generation to production ML infrastructure, generative models, and real-time inference. My work spans machine learning engineering, applied research, MLOps, and scalable AI deployment, with recent experience in robotic learning and perception systems at U-M&apos;s Mcity.
             </p>
 
             <div ref={heroMetricsRef} className="mt-8 flex flex-wrap gap-3 text-sm text-white/70">
@@ -257,9 +257,9 @@ export function PortfolioHome() {
 
             <div className="mt-12 grid gap-4 sm:grid-cols-3">
               {[
-                ["Robotic Learning", "Reinforcement learning, policy evaluation, trajectory forecasting, and continuous-control robotics."],
-                ["Autonomy Systems", "ROS/Open3D perception-to-planning evaluation, closed-loop testing, ADAS perception, and sensor pipelines."],
-                ["AI Performance", "CUDA-accelerated inference, ONNX Runtime, streaming systems, latency optimization, and model deployment."],
+                ["Machine Learning Engineering", "Deep learning, reinforcement learning, generative models, and applied research."],
+                ["LLM & RAG Systems", "Retrieval-augmented generation, semantic search, vector indexes, and applied NLP."],
+                ["AI Infrastructure", "CUDA-accelerated inference, ONNX Runtime, streaming systems, latency optimization, and model deployment."],
               ].map(([label, desc]) => (
                 <Card key={label} className="border-white/10 bg-white/[0.04]">
                   <CardHeader className="p-5">
@@ -286,16 +286,16 @@ export function PortfolioHome() {
             <div className="absolute inset-x-5 bottom-5 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 backdrop-blur-xl">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/45">Focus</p>
-                  <p className="mt-2 text-lg font-semibold">Robotic Learning & AI Systems Engineer</p>
+                  <p className="mt-2 text-lg font-semibold">AI/ML Software Engineer</p>
                   <p className="mt-2 text-sm leading-6 text-white/65">
-                    Reinforcement learning, autonomy ML, real-time perception, and production AI systems for robotics applications.
+                    Machine learning engineering, LLM systems, and production AI infrastructure across research and industry.
                   </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 backdrop-blur-xl">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/45">Strengths</p>
-                <p className="mt-2 text-lg font-semibold">ML research + robotics</p>
+                <p className="mt-2 text-lg font-semibold">ML engineering + applied research</p>
                 <p className="mt-2 text-sm leading-6 text-white/65">
-                  Forecasting, robotic learning, semantic search, RAG systems, and deployment workflows that ship reliably.
+                  Forecasting, generative models, semantic search, RAG systems, and deployment workflows that ship reliably.
                 </p>
               </div>
             </div>
@@ -348,7 +348,7 @@ export function PortfolioHome() {
         <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Skills</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Built for robotic learning, autonomy ML, and real-time AI systems.</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Built for AI/ML engineering, LLM systems, and production software.</h2>
             <p className="mt-4 max-w-xl leading-7 text-white/68">
               The portfolio emphasizes concrete tools and clear categories so it reads well for ATS and for technical reviewers.
             </p>
@@ -398,10 +398,10 @@ export function PortfolioHome() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-white">University of Michigan, Ann Arbor</CardTitle>
-                <span className="text-sm text-white/45">Aug 2024 - Dec 2026</span>
+                <span className="text-sm text-white/45">Aug 2025 - Dec 2026</span>
               </div>
               <CardDescription className="text-base text-white/75">MS, Data Science (GPA: 3.87)</CardDescription>
-              <p className="mt-2 text-sm leading-6 text-white/65">Coursework: Applied Machine Learning, Natural Language Processing, Statistical Inference, Advanced DBMS, Advanced Probability & Distribution, Regression Analysis, Reinforcement Learning</p>
+              <p className="mt-2 text-sm leading-6 text-white/65">Coursework: Applied Machine Learning, Natural Language Processing, Statistical Inference, Advanced Database Management Systems, Advanced Probability & Distribution, Regression Analysis, Reinforcement Learning</p>
             </CardHeader>
           </Card>
 
@@ -449,9 +449,9 @@ export function PortfolioHome() {
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Projects</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Robotic learning, autonomy systems, and production AI.</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Machine learning systems, LLM applications, and production AI.</h2>
           </div>
-          <div className="hidden text-sm text-white/50 lg:block">Projects focused on robot policy learning, real-time perception, closed-loop evaluation, and AI systems deployment.</div>
+          <div className="hidden text-sm text-white/50 lg:block">Projects spanning LLM infrastructure, NLP research, real-time perception, anomaly detection, and applied robotics.</div>
         </div>
         <div className="mt-6 grid gap-6 lg:grid-cols-1">
           {projects.map((project) => (
@@ -489,9 +489,9 @@ export function PortfolioHome() {
           <CardContent className="flex flex-col items-start justify-between gap-6 p-7 lg:flex-row lg:items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.28em] text-amber-200/80">Ready to collaborate?</p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">Let’s build robotic learning and real-time AI systems together.</h3>
+              <h3 className="mt-3 text-2xl font-semibold text-white">Let’s build AI/ML systems and production software together.</h3>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/68">
-                Reach out if you’re looking for work across reinforcement learning, robotic learning, autonomy ML, real-time perception, model evaluation, or production AI systems.
+                Reach out if you’re looking for work across machine learning engineering, LLM/RAG systems, MLOps, model evaluation, or production AI infrastructure.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
