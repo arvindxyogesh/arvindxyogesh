@@ -68,31 +68,40 @@ const experience = [
 
 const projects = [
   {
-    name: "Diffusion Model From Scratch",
-    tag: "Generative Models | Deep Learning",
-    intention: "Implement DDPM-style diffusion models and U-Net samplers from first principles for image generation.",
-    description: "DDPM forward/backward chains, U-Net denoiser with attention, EMA weight averaging, and sampling utilities with configurable noise schedules.",
-    achievement: "Reference implementation supporting end-to-end training and sample generation; useful for hands-on understanding of diffusion sampling and conditional extensions.",
-    repo: "https://github.com/arvindxyogesh/diffusion-model-from-scratch",
-    details: "Includes training scripts, sample generation, and lightweight examples for quick CPU demos and reproducible tests.",
+    name: "Synapse – Open-Source LLM Gateway",
+    tag: "LLM Infra | FastAPI | Semantic Caching",
+    intention: "Build a self-hosted, OpenAI-API-compatible LLM gateway with semantic caching and observability.",
+    description: "FastAPI + React + Redis + Postgres gateway that sits in front of the real OpenAI SDK, adding semantic response caching (Redis ANN vector search), streaming, per-key rate limiting/quotas, and cost/latency observability — verified with automated tests against the actual openai SDK, not just schema comparison.",
+    achievement: "Designed a self-tuning cache-correctness controller using LLM-judge shadow verification to auto-calibrate similarity thresholds, holding precision at 98–100% under real GPU-served inference (Llama 3.1 8B, H200).",
+    repo: "https://github.com/arvindxyogesh/Synapse",
+    details: "Open-source, CI-tested gateway with Docker Compose deployment, an Alembic-managed Postgres schema, and a live React dashboard for charts, a chat playground, and API key management.",
   },
   {
-    name: "Pasupathy-AI",
-    tag: "RAG | GenAI",
-    intention: "Build a production-style RAG personal AI assistant.",
-    description: "Built a RAG personal AI assistant using React, Flask, FAISS, and Google Gemini with Dockerized deployment on AWS.",
-    achievement: "Deployed scalable infrastructure using Elastic Beanstalk, S3, CloudFront, and CI/CD pipelines through GitHub Actions.",
-    repo: "https://github.com/arvindxyogesh/pasupathy-ai",
-    details: "Optimized retrieval and embedding workflows for low-latency retrieval.",
+    name: "Attribution-Guided Masking for Robust Cross-Domain Sentiment Classification",
+    tag: "NLP | Domain Generalization | Research",
+    intention: "Test whether gradient-based attribution can detect and correct cross-domain generalization failure in transformer sentiment classifiers.",
+    description: "Co-developed Attribution-Guided Masking (AGM), a training-time regularizer that penalizes attribution mass on spurious tokens to improve robustness across sentiment domains.",
+    achievement: "Reduced cross-domain generalization gap to 0.013–0.244 across 4 sentiment domains (IMDb, Amazon, Hotel, Sentiment140), matching or beating DANN, IRM, Group DRO, and Fish on 3 of 4 zero-shot transfer targets under a strict bootstrap-CI evaluation across 12 domain-transfer pairs.",
+    repo: "https://github.com/arvindxyogesh/AGM-NLP",
+    details: "Reports negative results in full — attribution alone is a poor post-hoc diagnostic of generalization failure — with ablations isolating attribution-guided masking as the actual driver of improvement.",
   },
   {
-    name: "CLEVER – Cluster-Level Eviction for Vector Embedding Retrieval",
-    tag: "MLOps | ANN",
-    intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
-    description: "Built a semantic caching and ANN benchmarking framework on the LMSYS Chat-1M dataset with over 579k unique queries and 384-dimensional embeddings.",
-    achievement: "Benchmarked Flat, IVF, HNSW, and LSH vector indexes under realistic LLM retrieval workloads.",
-    repo: "https://github.com/arvindxyogesh/CLEVER",
-    details: "Designed a semantic-routing strategy achieving improved cache hit rates and latency reductions.",
+    name: "RoadSense – Real-Time ADAS Perception Pipeline",
+    tag: "Streaming | CV | MLOps",
+    intention: "Production-style streaming perception pipeline integrating ingest, GPU inference, and observability for ADAS workloads.",
+    description: "Kafka + Spark Structured Streaming ingestion, CUDA-enabled PyTorch inference service, lane detection, and Streamlit dashboard for latency and throughput observability, containerized across four microservices with Docker Compose and Prometheus monitoring.",
+    achievement: "Benchmarked Faster R-CNN and SSDLite MobileNetV3 on an NVIDIA H200 GPU, achieving 9.9ms and 14.9ms median latency (99.6 and 64.2 FPS), both clearing the 150ms real-time target.",
+    repo: "https://github.com/arvindxyogesh/RoadSense",
+    details: "Features batched GPU inference, Prometheus metrics, dataset download scripts (KITTI/nuScenes/BDD), and evaluation scripts for frame-level precision/recall.",
+  },
+  {
+    name: "Telesentry – Vehicle Telemetry Anomaly Detection",
+    tag: "Time-Series | Streaming | Anomaly Detection",
+    intention: "Benchmark classical vs. deep sequence anomaly detectors for real-time vehicle telemetry.",
+    description: "Compares Isolation Forest against an LSTM autoencoder and a self-attention/Transformer detector on a labeled, multi-type synthetic vehicle telemetry benchmark, then serves the winning model through a Kafka + Spark Structured Streaming pipeline behind a REST API and a live dashboard.",
+    achievement: "The LSTM autoencoder reached 0.734 AUROC and 0.530 F1 on a held-out set of 46K rows across 8 unseen vehicles, catching failure modes — sensor drift, GPS spoofing, dropout bursts — that a fixed-threshold baseline misses entirely.",
+    repo: "https://github.com/arvindxyogesh/Telesentry",
+    details: "Five independently-labeled anomaly types with distinct multivariate signatures, 7 engineered rolling-window features, and models calibrated to a shared false-positive-rate target for a fair comparison.",
   },
   {
     name: "Robot Policy Learning for Continuous Control",
@@ -104,31 +113,13 @@ const projects = [
     details: "PPO training loop, actor-critic networks, rollout buffer, GAE, checkpoint loading, evaluation scripts, TensorBoard logging, and policy inference benchmarking.",
   },
   {
-    name: "ADAS Real-Time Perception Pipeline",
-    tag: "Streaming | CV | MLOps",
-    intention: "Production-style streaming perception pipeline integrating ingest, GPU inference, and observability for ADAS workloads.",
-    description: "Kafka + Spark Structured Streaming ingestion, CUDA-enabled PyTorch inference service, lane detection, and Streamlit dashboard for latency and throughput observability.",
-    achievement: "Demonstrated a production-style stack with simulated 20 FPS streaming and documented p95 end-to-end latency targets below 150 ms; includes precision/recall evaluation workflows.",
-    repo: "https://github.com/arvindxyogesh/adas-perception-pipeline",
-    details: "Features batched GPU inference, Prometheus metrics, dataset download scripts (KITTI/nuScenes/BDD), and evaluation scripts for frame-level precision/recall.",
-  },
-  {
-    name: "Vehicle Telemetry Anomaly Detection",
-    tag: "Time-Series | Streaming | Anomaly Detection",
-    intention: "Real-time telemetry anomaly detection with synthetic data, streaming feature engineering, and online alerting.",
-    description: "Telemetry simulator → Kafka ingest → Spark Structured Streaming feature job → Isolation Forest detector → alert API and Streamlit dashboard for monitoring.",
-    achievement: "Implemented end-to-end streaming detection with batch evaluation tooling (precision/recall, false-positive rate, and mean detection delay) and low-latency alerting patterns.",
-    repo: "https://github.com/arvindxyogesh/vehicle-telemetry-anomaly-detection",
-    details: "Includes synthetic telemetry generator, sliding-window feature engineering, isolation-forest model training/evaluation, and REST endpoints for latest alerts.",
-  },
-  {
-    name: "Robotic Machining Analytics",
-    tag: "Signal Processing | Predictive Modeling",
-    intention: "End-to-end pipeline for synthetic sensor generation and surface-quality prediction in robotic machining experiments.",
-    description: "Physics-informed synthetic sensor generator, signal-processing feature extraction, vision-based surface monitoring, and regression benchmarking for Al6061 drilling experiments.",
-    achievement: "Built a reproducible research pipeline producing feature matrices and cross-validated RMSE/R² benchmarks across Ridge, Random Forest, and Gradient Boosting models.",
-    repo: "https://github.com/arvindxyogesh/robotic-machining-analytics",
-    details: "Includes configurable experiment YAMLs, synthetic generators, STFT/spectral features, and automated experiment orchestration for reproducible evaluation outputs.",
+    name: "CLEVER – Cluster-Level Eviction for Vector Embedding Retrieval",
+    tag: "MLOps | ANN",
+    intention: "Benchmark ANN indexes and semantic caching on large LLM query workloads.",
+    description: "Built a semantic caching and ANN benchmarking framework on the LMSYS Chat-1M dataset with over 579k unique queries and 384-dimensional embeddings.",
+    achievement: "Benchmarked Flat, IVF, HNSW, and LSH vector indexes under realistic LLM retrieval workloads.",
+    repo: "https://github.com/arvindxyogesh/CLEVER",
+    details: "Designed a semantic-routing strategy achieving improved cache hit rates and latency reductions.",
   },
 ];
 
@@ -451,7 +442,7 @@ export function PortfolioHome() {
             <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">Projects</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Machine learning systems, LLM applications, and production AI.</h2>
           </div>
-          <div className="hidden text-sm text-white/50 lg:block">Projects spanning generative models, RAG/LLM systems, ML infrastructure, and applied robotics research.</div>
+          <div className="hidden text-sm text-white/50 lg:block">Projects spanning LLM infrastructure, NLP research, real-time perception, anomaly detection, and applied robotics.</div>
         </div>
         <div className="mt-6 grid gap-6 lg:grid-cols-1">
           {projects.map((project) => (
