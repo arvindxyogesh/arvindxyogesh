@@ -32,14 +32,24 @@ const skills = [
 
 const experience = [
   {
+    title: "Prof. Z. Morley Mao's Research Group, University of Michigan",
+    role: "Research Intern – AI Security & Machine Learning",
+    period: "Jun 2026 - Present",
+    description: "Ann Arbor, United States",
+    points: [
+      "Built a modular adversarial machine learning attack framework using PyTorch, targeting vision-language-action (VLA) models for autonomous driving across two model backends (ReCogDrive, Alpamayo).",
+      "Implemented differentiable Stanley and PID controllers and a kinematic bicycle model in Python to design closed-loop attack loss functions including steering command, curvature, and heading discontinuity.",
+      "Designed a scene vulnerability analysis tool ranking autonomous driving scenarios by decision-boundary proximity using mode entropy and cluster separation metrics, validated with a 44-test automated unit test suite.",
+    ],
+  },
+  {
     title: "M-City, University of Michigan",
     role: "Student ML Researcher",
-    period: "Sep 2025 - Present",
-    description: "Ann Arbor",
+    period: "Sep 2025 - May 2026",
+    description: "Ann Arbor, United States",
     points: [
-      "Built an automated perception-to-planning evaluation pipeline using ROS, Open3D, and Python, reducing manual testing effort by 70% and enabling batched A/B model evaluation.",
-      "Trained a multi-task perception and short-horizon forecasting model in PyTorch, reducing 0–3s trajectory prediction error by 15% and lowering collision-warning events by 9% in closed-loop simulations.",
-      "Added multimodal experiment tracking, distribution-shift monitoring, and regression testing using MLflow and TensorBoard to improve model reliability and rollback validation.",
+      "Built and maintained automated ML evaluation pipelines using ROS, Open3D, and Python for batched model benchmarking, reducing manual testing effort by 63%.",
+      "Supported dataset preparation, annotation quality checks, and fine-tuning for Co-DETR object-detection models; trained and evaluated CV models in PyTorch with MLflow/TensorBoard tracking for model comparison and distribution-shift analysis.",
     ],
   },
   {
@@ -48,20 +58,18 @@ const experience = [
     period: "Jun 2024 - Jul 2025",
     description: "Chennai, India",
     points: [
-      "Developed gearbox-failure forecasting models using SCADA telemetry, maintenance logs, and engineered time-series features, achieving 0.82 AUC with median alert lead times of approximately 18 days.",
-      "Productionized streaming inference pipelines using Kafka, Spark, ONNX Runtime, and Airflow-managed retraining workflows, achieving 80 ms median latency.",
-      "Reduced unplanned turbine downtime by 25% and integrated spare-parts demand forecasting into maintenance scheduling, reducing inventory overstock by 15%.",
+      "Developed time-series forecasting models on SCADA telemetry and engineered features, achieving 0.82 AUC with a median 18-day alert lead time for predictive maintenance.",
+      "Built scalable ML workflows using Kafka, Spark, ONNX Runtime, and Airflow for anomaly detection, batch inference, and automated retraining, improving supply-planning accuracy by 56% — earned the Q1 Spot Award.",
     ],
   },
   {
     title: "Computer Society, MIT",
-    role: "ML Engineer",
-    period: "Mar 2021 - Jun 2024",
+    role: "ML Engineer / Technical Lead",
+    period: "Feb 2021 - Jun 2024",
     description: "Chennai, India",
     points: [
-      "Built a semantic retrieval pipeline using sentence-transformers, LLM reranking, and vector search, improving Top-1 relevance by 28%, tripling throughput, and reducing CPU cost by 2.5x.",
-      "Developed a real-time ADAS perception pipeline using Kafka, Spark Structured Streaming, and CUDA-accelerated inference services, achieving 20 FPS with p95 end-to-end latency below 150 ms.",
-      "Designed robotic machining analytics models combining 1D-CNNs and gradient-boosted trees for defect prediction, and integrated MLflow telemetry to accelerate defect triage and improve reproducibility.",
+      "Built RoadSense, a real-time streaming perception pipeline using Apache Kafka, Spark Structured Streaming, and CUDA-accelerated PyTorch inference, containerized across four microservices with Docker Compose and Prometheus monitoring.",
+      "Benchmarked Faster R-CNN and SSDLite MobileNetV3 on an NVIDIA H200 GPU, achieving 9.9ms and 14.9ms median latency (99.6 and 64.2 FPS), both clearing the 150ms real-time target.",
     ],
   },
 ];
