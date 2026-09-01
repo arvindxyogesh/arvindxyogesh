@@ -25,9 +25,10 @@ import {
 } from "@/components/ui/card";
 
 const skills = [
-  `Machine Learning & AI: Python, PyTorch, TensorFlow, LLMs, RAG, reinforcement learning, CNNs, transformers, scikit-learn, MLflow, TensorBoard`,
-  `Software Systems & Simulation: C++, ROS, Open3D, closed-loop simulation, evaluation pipelines, distributed systems, Linux, Bash`,
-  `AI Infrastructure & Deployment: CUDA-accelerated inference, ONNX Runtime, Kafka, Spark, PySpark, Airflow, Docker, AWS, Git, FastAPI, FAISS, SQL`,
+  `Languages: Python, SQL, C++, Java, Go`,
+  `ML/AI Frameworks: PyTorch, TensorFlow, scikit-learn, Hugging Face Transformers, LangChain, RAG pipelines, reinforcement learning, computer vision, adversarial ML, MLflow, TensorBoard`,
+  `MLOps & Infrastructure: Docker, Terraform, Kafka, Spark, PySpark, ONNX Runtime, Airflow, AWS (S3, CloudFront, Elastic Beanstalk), CI/CD (GitHub Actions), Git, Linux`,
+  `Backend & Data: FastAPI, Flask, Open3D, ROS, FAISS, vector search, Tableau, MongoDB`,
 ];
 
 const experience = [
@@ -397,10 +398,10 @@ export function PortfolioHome() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-white">University of Michigan, Ann Arbor</CardTitle>
-                <span className="text-sm text-white/45">Aug 2024 - Dec 2026</span>
+                <span className="text-sm text-white/45">Aug 2025 - Dec 2026</span>
               </div>
               <CardDescription className="text-base text-white/75">MS, Data Science (GPA: 3.87)</CardDescription>
-              <p className="mt-2 text-sm leading-6 text-white/65">Coursework: Applied Machine Learning, Natural Language Processing, Statistical Inference, Advanced DBMS, Advanced Probability & Distribution, Regression Analysis, Reinforcement Learning</p>
+              <p className="mt-2 text-sm leading-6 text-white/65">Coursework: Applied Machine Learning, Natural Language Processing, Statistical Inference, Advanced Database Management Systems, Advanced Probability & Distribution, Regression Analysis, Reinforcement Learning</p>
             </CardHeader>
           </Card>
 
