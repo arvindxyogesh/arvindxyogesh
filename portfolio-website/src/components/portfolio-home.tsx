@@ -153,7 +153,7 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-const resumeHref = "/resume.pdf?v=20260901";
+const resumeHref = "/resume.pdf?v=20260906";
 
 export function PortfolioHome() {
   const heroTitleRef = useRef<HTMLHeadingElement | null>(null);
