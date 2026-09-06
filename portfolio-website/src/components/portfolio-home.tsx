@@ -73,6 +73,17 @@ const experience = [
       "Benchmarked Faster R-CNN and SSDLite MobileNetV3 on an NVIDIA H200 GPU, achieving 9.9ms and 14.9ms median latency (99.6 and 64.2 FPS), both clearing the 150ms real-time target.",
     ],
   },
+  {
+    title: "VisAI Labs",
+    role: "Software Engineering / Machine Learning Intern",
+    period: "Jun 2023 - Aug 2023",
+    description: "Chennai, India",
+    points: [
+      "Developed Python/FastAPI REST APIs to integrate computer-vision inference with warehouse applications, reducing end-to-end API latency by 30% and supporting 10K+ daily inference requests.",
+      "Built automated data-ingestion and validation pipelines for package-detection and measurement results using Python and PostgreSQL, cutting manual data-processing effort by 60% and improving data reliability.",
+      "Containerized and deployed AI inference services with Docker, optimizing service performance and resource utilization to achieve 2x higher inference throughput on edge systems.",
+    ],
+  },
 ];
 
 const projects = [
